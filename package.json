@@ -1,0 +1,19 @@
+{
+  "name": "thermostat",
+  "version": "1.0.0",
+  "description": "- Test-drive a simple JS application",
+  "main": "thermostat.test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RPGrimes/Thermostat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RPGrimes/Thermostat/issues"
+  },
+  "homepage": "https://github.com/RPGrimes/Thermostat#readme"
+}
