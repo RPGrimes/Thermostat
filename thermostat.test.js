@@ -51,4 +51,25 @@ describe("thermostat", () => {
     thermostat.reset()
     expect(thermostat.getTemperature()).toBe(20)
   })
+
+  it('returns a comment stating the energy useage is low', () => {
+    const thermostat = new Thermostat
+    for(let i = 0; i < 3; i++) {
+      thermostat.down()
+    }
+    expect(thermostat.usage()).toBe('Low-useage')
+  })
+
+  it('returns a comment stating the energy useage is low', () => {
+    const thermostat = new Thermostat
+    expect(thermostat.usage()).toBe('Medium-useage')
+  })
+
+  it('returns a comment stating the energy useage is low', () => {
+    const thermostat = new Thermostat
+    for(let i = 0; i < 6; i++) {
+      thermostat.up()
+    }
+    expect(thermostat.usage()).toBe('High-useage')
+  })
 });
