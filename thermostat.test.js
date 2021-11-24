@@ -36,4 +36,19 @@ describe("thermostat", () => {
     }
     expect(thermostat.getTemperature()).toBe(32);
   })
+
+  it('checks temperature cannot be set below 10', () => {
+    const thermostat = new Thermostat
+    for(let i = 0; i < 15; i++) {
+      thermostat.down()
+    }
+    expect(thermostat.getTemperature()).toBe(10)
+  })
+
+  it('resets the thermostat to 20', () => {
+    const thermostat = new Thermostat
+    thermostat.up()
+    thermostat.reset()
+    expect(thermostat.getTemperature()).toBe(20)
+  })
 });
