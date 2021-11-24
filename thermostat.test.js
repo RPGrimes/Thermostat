@@ -18,4 +18,22 @@ describe("thermostat", () => {
     thermostat.down();
     expect(thermostat.getTemperature()).toBe(19)
   })
+
+  it('restricts the maximum temperature to 25 when power saving mode is on', () => {
+    const thermostat = new Thermostat;
+    thermostat.setPowerSavingMode(true);
+    for(let i=0; i < 10; i++){
+      thermostat.up()
+    }
+    expect(thermostat.getTemperature()).toBe(25);
+  })
+
+  it('restricts the maximum temperature to 32 when power saving mode is not on', () => {
+    const thermostat = new Thermostat;
+    thermostat.setPowerSavingMode(false);
+    for(let i=0; i < 20; i++){
+      thermostat.up()
+    }
+    expect(thermostat.getTemperature()).toBe(32);
+  })
 });
