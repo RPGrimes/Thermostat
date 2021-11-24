@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/RPGrimes/Thermostat/issues"
   },
-  "homepage": "https://github.com/RPGrimes/Thermostat#readme"
+  "homepage": "https://github.com/RPGrimes/Thermostat#readme",
+  "dependencies": {
+    "jest": "^27.3.1",
+    "readline-sync": "^1.4.10"
+  }
 }

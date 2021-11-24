@@ -5,32 +5,32 @@ class Thermostat{
     this.minTemperature = 10
   }
 
+  setPowerSavingMode(boolean) {
+    this.powerSavingMode = boolean
+  }
+
   getTemperature() {
-    if(this.powerSavingMode === true && this.temperature > 25) {
-      let maxTemperature = 25
-      return maxTemperature
-    }
-    else if(this.powerSavingMode !== true && this.temperature > 32) {
-      let maxTemperature = 32
-      return maxTemperature
-    }
-    else if (this.temperature < 10) {
-      return this.minTemperature
-    }
-    else
     return this.temperature
   }
 
+  maxTemperature() {
+    if(this.powerSavingMode === true) {
+      return 25
+  } else {
+      return 32
+    }
+  }
+
   up() {
+    if(this.temperature < this.maxTemperature()) {
     this.temperature++
+    }
   }
 
   down() {
+    if (this.temperature > 10) {
     this.temperature--
-  }
-
-  setPowerSavingMode(boolean) {
-    this.powerSavingMode = boolean
+    }
   }
 
   reset() {

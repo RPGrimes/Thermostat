@@ -67,7 +67,8 @@ describe("thermostat", () => {
 
   it('returns a comment stating the energy useage is low', () => {
     const thermostat = new Thermostat
-    for(let i = 0; i < 6; i++) {
+    thermostat.setPowerSavingMode(false);
+    for(let i = 0; i < 10; i++) {
       thermostat.up()
     }
     expect(thermostat.usage()).toBe('High-useage')
