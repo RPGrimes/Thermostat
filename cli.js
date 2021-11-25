@@ -18,7 +18,7 @@ while(runThermostat === true) {
   } else if(currentTemperature === thermostat.maxTemperature() && thermostat.powerSavingMode !== true) {
     console.log(`${logTemperature} - maximum temperature reached (psm off)`);
   } else {
-  console.log(`${logTemperature}`)
+    console.log(`${logTemperature}`)
 }
   
   let command = readlineSync.question('Please enter a command > ')
