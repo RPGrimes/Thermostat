@@ -1,4 +1,5 @@
 const Thermostat = require('./thermostat.js');
+const Weather = require('./weatherAPI.js');
 
 describe("thermostat", () => {
 
@@ -38,7 +39,7 @@ describe("thermostat", () => {
   })
 
   it('checks temperature cannot be set below 10', () => {
-    const thermostat = new Thermostat
+    const thermostat = new Thermostat;
     for(let i = 0; i < 15; i++) {
       thermostat.down()
     }
@@ -46,14 +47,14 @@ describe("thermostat", () => {
   })
 
   it('resets the thermostat to 20', () => {
-    const thermostat = new Thermostat
+    const thermostat = new Thermostat;
     thermostat.up()
     thermostat.reset()
     expect(thermostat.getTemperature()).toBe(20)
   })
 
   it('returns a comment stating the energy useage is low', () => {
-    const thermostat = new Thermostat
+    const thermostat = new Thermostat;
     for(let i = 0; i < 3; i++) {
       thermostat.down()
     }
@@ -61,16 +62,39 @@ describe("thermostat", () => {
   })
 
   it('returns a comment stating the energy useage is low', () => {
-    const thermostat = new Thermostat
+    const thermostat = new Thermostat;
     expect(thermostat.usage()).toBe('Medium-useage')
   })
 
   it('returns a comment stating the energy useage is low', () => {
-    const thermostat = new Thermostat
+    const thermostat = new Thermostat;
     thermostat.setPowerSavingMode(false);
     for(let i = 0; i < 10; i++) {
       thermostat.up()
     }
     expect(thermostat.usage()).toBe('High-useage')
+  })
+
+  it('has no defined city and no current city temperature when construted', () => {
+    const thermostat = new Thermostat;
+    expect(thermostat.city).toBe(null)
+    expect(thermostat.getCityTemperature()).toBe('Please set a city before getting city temperature.')
+  })
+
+  it('defines a city when city is set', () => {
+    const weather = new Weather
+    const thermostat = new Thermostat(weather);
+    console.log(thermostat.weather)
+    thermostat.setCity('Gibraltar')
+    expect(thermostat.city).toBe('Gibraltar')
+  })
+
+  it('defines a city and city temperature when city is set', () => {
+    const weather = new Weather
+    const thermostat = new Thermostat(weather);
+    console.log(thermostat.weather)
+    thermostat.setCity('Gibraltar')
+    expect(thermostat.city).toBe('Gibraltar')
+    expect(thermostat.getCityTemperature()).toBe(15.97)   //NEED TO UPDATE THIS TO INCLUDE MOCKING
   })
 });

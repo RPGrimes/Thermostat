@@ -1,8 +1,14 @@
+const Weather = require('./weatherAPI.js')
+
+const weather = new Weather;
+
 class Thermostat{
-  constructor() {
+  constructor(weather) {
     this.temperature = 20
     this.powerSavingMode = true
     this.minTemperature = 10
+    this.weather = weather
+    this.city = null
   }
 
   setPowerSavingMode(boolean) {
@@ -47,6 +53,24 @@ class Thermostat{
     else 
       return 'High-useage'
   }
+
+  setCity(city) {
+    this.city = city;
+  }
+
+  getCityTemperature() {
+      if(this.city !== null) {
+        this.weather.fetchWeatherData(this.city, (weatherData) => {
+          console.log(`The current temperature in ${this.city} is ${weatherData.main.temp}.`);
+      })
+    } else {
+      return 'Please set a city before getting city temperature.'
+    }
+  }
 };
+
+const thermostat = new Thermostat(weather)
+thermostat.setCity('Gibraltar')
+thermostat.getCityTemperature()
 
 module.exports = Thermostat;

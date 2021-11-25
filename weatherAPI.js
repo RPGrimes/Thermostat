@@ -13,7 +13,9 @@ class Weather {
 };
 
 //test it works
-const weather = new Weather
-weather.fetchWeatherData('London', (weatherData) => {
-  console.log(weatherData)
-});
+// const weather = new Weather
+// weather.fetchWeatherData('London', (weatherData) => {
+//   console.log(weatherData)
+// });
+
+module.exports = Weather

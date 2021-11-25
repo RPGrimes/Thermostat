@@ -2,7 +2,7 @@
 
 const CANDIES_DB = ['Mars', 'Maltesers', 'Skittles', 'Fraise Tagada'];
 
-handleResultCallback is given as argument, and our function *calls it back* with the data 2 seconds later
+// handleResultCallback is given as argument, and our function *calls it back* with the data 2 seconds later
 const fetchCandiesFromDatabase = (handleResultCallback) => {
   setTimeout(() => {
     handleResultCallback(CANDIES_DB);
