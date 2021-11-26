@@ -1,5 +1,5 @@
 const got = require('got');
-const apiKey = 'removed for data protection when comitting to GitHub';
+const apiKey = 'fe9233b59ccb955ef679eac036278f3e';
 
 class Weather {
 
@@ -18,4 +18,4 @@ class Weather {
 //   console.log(weatherData)
 // });
 
-module.exports = Weather
+module.exports = Weather, apiKey;

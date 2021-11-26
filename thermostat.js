@@ -64,13 +64,13 @@ class Thermostat{
           console.log(`The current temperature in ${this.city} is ${weatherData.main.temp}.`);
       })
     } else {
-      return 'Please set a city before getting city temperature.'
+      return('Please set a city before getting city temperature.')
     }
   }
 };
 
-const thermostat = new Thermostat(weather)
-thermostat.setCity('Gibraltar')
-thermostat.getCityTemperature()
+const thermostat = new Thermostat(weather);
+thermostat.setCity('Anadyr');
+thermostat.getCityTemperature();
 
 module.exports = Thermostat;
