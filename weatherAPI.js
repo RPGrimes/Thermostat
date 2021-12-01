@@ -1,5 +1,5 @@
 const got = require('got');
-const apiKey = 'fe9233b59ccb955ef679eac036278f3e';
+const apiKey = 'removed for Github commit';
 
 class Weather {
 
